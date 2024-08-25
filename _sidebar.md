@@ -1,5 +1,3 @@
-- [Home](rules/home.md)
-
 - [001-only-https-server](rules/001.md)
 - [002-no-path-versioning](rules/002.md)
 - [003-define-common-responses](rules/003.md)
