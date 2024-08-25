@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Unique Tech Events
+  version: "4.0.1c"
+  description: |
+    [← Return to home](/) | [View API Spec →](/specs/1/lint)
+servers:
+  - url: https://demo-stack-api-lint.vercel.app
+  - url: http://localhost:3000
+paths:
+  /api/{version}/events:
+    get:
+      parameters:
+        - name: version
+          required: true
+          in: path
+  /api/{version}/events/{eventId}:
+    post:
+      parameters:
+        - name: version
+          required: true
+          in: path
+        - name: eventId
+          in: path
+          required: true

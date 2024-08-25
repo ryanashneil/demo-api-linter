@@ -1,0 +1,84 @@
+rules:
+  interop-001-only-https-server:
+    documentationUrl: https://docs.developer.tech.gov.sg/interop-api-linter/rules/001
+    message: >
+      Only HTTPS servers are allowed.
+    description: >
+      This rule ensures that all server URLs in the OpenAPI specification use the HTTPS protocol to comply with security best practices, ensuring encrypted communication and protecting sensitive data.
+    severity: error
+    given:
+      - "$.servers[*].url"
+      - "$.schemes[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https$|^https://"
+
+  interop-002-no-path-versioning:
+    documentationUrl: https://docs.developer.tech.gov.sg/interop-api-linter/rules/002
+    message: >
+      API path contains a version. Versioning SHOULD be in the server URL and NOT in the path(s).
+    description: >
+      Versioning in the path can lead to confusion that is best avoided. Perhaps multiple global versions are in the same document, but they ref shared schemas which change over time and break backwards compatibility unintentionally. Perhaps people are trying to implement method-level URL versioning which SHOULD NOT be used.
+    severity: error
+    formats:
+      - oas2
+      - oas3
+    given:
+      - $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/((?:/)(v|version|\\{version\\})(?:/)?)/i"
+
+  interop-003-define-common-responses:
+    documentationUrl: https://docs.developer.tech.gov.sg/interop-api-linter/rules/003
+    message: >
+      Missing one or more of the responses: 2XX, 400, 401, 403, and 429.
+    description: >
+      Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429.
+    severity: error
+    given:
+      - $.paths[*][*].responses
+    then:
+      - function: "schema"
+        functionOptions:
+          schema:
+            type: "object"
+            allOf:
+              - required:
+                  - "400"
+                  - "401"
+              - required:
+                  - "403"
+              - required:
+                  - "429"
+
+  interop-004-define-rate-limit-header:
+    documentationUrl: https://docs.developer.tech.gov.sg/interop-api-linter/rules/004
+    message: >
+      All 2XX and 4XX responses should define rate limiting headers.
+    description: >
+      Define proper rate limiting to avoid attackers overloading the API. 
+      There are many ways to implement rate-limiting, but most of them involve using HTTP headers.
+    severity: warn
+    formats:
+      - oas3
+    given:
+      - $.paths[*]..responses[?(@property.match(/^(2|4)/))]
+    then:
+      field: headers
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          oneOf:
+            - required:
+                - RateLimit
+            - required:
+                - RateLimit-Limit
+                - RateLimit-Reset
+            - required:
+                - X-RateLimit-Limit
+            - required:
+                - X-Rate-Limit-Limit

@@ -1,0 +1,262 @@
+openapi: 3.0.3
+info:
+  title: Unique Tech Events
+  version: "4.0.1c"
+  description: |
+    [← Return to home](/) | [View API Spec →](/specs/3/lint)
+
+    This API provides exclusive events to learn more about STACK in Singapore.
+  contact:
+    email: publisher@apex.gov.sg
+    name: Pub Lee Sher
+tags:
+  - name: Events
+    description: Events related to STACK
+servers:
+  - url: https://demo-stack-api-lint.vercel.app/api/v4
+    description: Production
+  - url: http://localhost:3000/api/v4
+    description: Local Development
+security:
+  - x-exciting-event-api-key: []
+paths:
+  /events:
+    get:
+      tags:
+        - "Events"
+      operationId: GetEvents
+      summary: List events
+      description: |
+        # Endpoint for retrieving the list of unique and exciting tech events
+
+        This endpoint will return all the registered events.
+
+        You may specify which **country** to filter for to get specific events for specific countries.
+      parameters:
+        - name: country
+          in: query
+          examples:
+            singapore:
+              value: "singapore"
+            canada:
+              value: "canada"
+            thailand:
+              value: "thailand"
+          schema:
+            type: string
+            description: The country to filter events from
+      responses:
+        "200":
+          description: Successful retrieval of events
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Unique identifier of the event
+                      example: "event-123"
+                    name:
+                      type: string
+                      description: Name of the event
+                      example: "STACK Tech Conference"
+                    description:
+                      type: string
+                      description: Description of the event
+                      example: "Conference for developers to learn more about STACK"
+                    guestSpeaker:
+                      type: string
+                      description: Name of the guest speaker for the event
+                      example: "John Doe"
+                    date:
+                      type: string
+                      description: Date of the event
+                      example: "2024-07-01T03:04:42.800Z"
+                    location:
+                      type: string
+                      description: Location of the event
+                      example: "singapore"
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "429":
+          $ref: "#/components/responses/Error429"
+        "500":
+          $ref: "#/components/responses/Error500"
+  /events/{eventId}:
+    post:
+      tags:
+        - "Events"
+      operationId: RegisterForEvents
+      summary: Event registration
+      description: |
+        # Endpoint for event registration
+
+        Register yourself and your friends (up to 2) to attend to an event of your choice.
+
+        Registering to an event will send you updates on the event and guarantee your seats.
+      parameters:
+        - name: eventId
+          in: path
+          description: Unique identifier of the event to register
+          required: true
+          schema:
+            type: string
+            example: "event-123"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pax:
+                  type: integer
+                  description: Number of tickets to include to this registration
+                  minimum: 1
+                  maximum: 3
+                  example: 1
+                email:
+                  description: Email of the participant to receive updates on the event
+                  type: string
+                  example: user@example.com
+                name:
+                  type: string
+                  description: Name of the participant
+                  maxLength: 24
+                  minLength: 3
+                  example: John Doe
+                tier:
+                  type: string
+                  enum:
+                    - "gold"
+                    - "silver"
+                    - "bronze"
+                  description: Tier of the ticket seats
+                  example: gold
+      responses:
+        "201":
+          description: Successful registration to event
+          headers:
+            X-RateLimit-Limit:
+              $ref: "#/components/headers/X-RateLimit-Limit"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  event:
+                    type: string
+                    description: Id of event registered
+                    example: "event-123"
+                  tickets:
+                    type: integer
+                    description: Number of tickets registered
+                    format: int32
+                    maximum: 3
+                    minimum: 1
+                    example: 1
+                  for:
+                    type: string
+                    description: Name of the participant
+                    example: John Doe
+        "400":
+          $ref: "#/components/responses/Error400"
+        "401":
+          $ref: "#/components/responses/Error401"
+        "403":
+          $ref: "#/components/responses/Error403"
+        "429":
+          $ref: "#/components/responses/Error429"
+        "500":
+          $ref: "#/components/responses/Error500"
+components:
+  securitySchemes:
+    x-exciting-event-api-key:
+      type: apiKey
+      name: x-exciting-event-api-key
+      in: header
+  headers:
+    X-RateLimit-Limit:
+      schema:
+        type: number
+      description: "Maximum number of requests allowed in a set time window (e.g., per hour)."
+  responses:
+    Error400:
+      description: Invalid body request
+      headers:
+        X-RateLimit-Limit:
+          $ref: "#/components/headers/X-RateLimit-Limit"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "The request body is invalid or missing required fields"
+    Error401:
+      description: Missing or Invalid API key
+      headers:
+        X-RateLimit-Limit:
+          $ref: "#/components/headers/X-RateLimit-Limit"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "You have a missing or invalid API key"
+    Error403:
+      description: User of API key is not allowed to register to selected event
+      headers:
+        X-RateLimit-Limit:
+          $ref: "#/components/headers/X-RateLimit-Limit"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "User of API key is not allowed to register to selected event"
+    Error429:
+      description: Rate limit exceeded
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+            description: Seconds to wait before retrying the request
+            minimum: 120
+        X-RateLimit-Limit:
+          $ref: "#/components/headers/X-RateLimit-Limit"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "You have exceeded the rate limit for this endpoint"
+    Error500:
+      description: Internal Server Error
+      headers:
+        X-RateLimit-Limit:
+          $ref: "#/components/headers/X-RateLimit-Limit"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "An internal server error has occurred"

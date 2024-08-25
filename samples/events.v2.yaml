@@ -1,0 +1,96 @@
+openapi: 3.0.3
+info:
+  title: Unique Tech Events
+  version: "4.0.1c"
+  description: |
+    [← Return to home](/) | [View API Spec →](/specs/2/lint)
+
+    This API provides exclusive events to learn more about STACK in Singapore.
+  contact:
+    email: publisher@apex.gov.sg
+    name: Pub Lee Sher
+tags:
+  - name: Events
+    description: Events related to STACK
+servers:
+  - url: https://demo-stack-api-lint.vercel.app
+  - url: http://localhost:3000
+paths:
+  /api/{version}/events:
+    get:
+      tags:
+        - "Events"
+      operationId: GetEvents
+      summary: List events
+      description: |
+        # Endpoint for retrieving the list of unique and exciting tech events
+
+        This endpoint will return all the registered events.
+
+        You may specify which **country** to filter for to get specific events for specific countries.
+      parameters:
+        - name: version
+          required: true
+          in: path
+          example: "v4"
+          schema:
+            type: string
+            description: The version of the API
+      responses:
+        "200":
+          description: Successful retrieval of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /api/{version}/events/{eventId}:
+    post:
+      tags:
+        - "Events"
+      operationId: RegisterForEvents
+      summary: Event registration
+      description: |
+        # Endpoint for event registration
+
+        Register yourself and your friends (up to 2) to attend to an event of your choice.
+
+        Registering to an event will send you updates on the event and guarantee your seats.
+      parameters:
+        - name: version
+          required: true
+          in: path
+          example: "v4"
+          schema:
+            type: string
+            description: The version of the API
+        - name: eventId
+          in: path
+          description: Unique identifier of the event to register
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pax:
+                  type: integer
+                email:
+                  description: Email of the participant to receive updates on the event
+                  type: string
+                  example: user@example.com
+                name:
+                  type: string
+                tier:
+                  type: string
+      responses:
+        "201":
+          description: Successful registration to event
+          content:
+            application/json:
+              schema:
+                type: object

@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: 2024-07-01T03:04:42.800Z
+  description: |
+    [← Return to home](/) | [View API Spec →](/specs/0/lint)
+servers:
+  - url: "http://refer-to-email-for-url"
+paths:
+  /{path}:
+    get:
+      operationId: Default_Operation
+      parameters:
+        - name: path
+          in: path
+          description: ""
+          required: true
+          type: string
+    post:
+      operationId: Default_Operation
+      parameters:
+        - name: path
+          in: path
+          description: ""
+          required: true
+          type: string
