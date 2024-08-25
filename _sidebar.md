@@ -1,4 +1,4 @@
-# Rules
+OpenAPI
 
 - [001-only-https-server](rules/openapi/001.md)
 - [002-no-path-versioning](rules/openapi/002.md)
