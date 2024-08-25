@@ -1,6 +1,6 @@
 rules:
   interop-001-only-https-server:
-    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-api-linter/rules/001
+    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/001
     message: >
       Only HTTPS servers are allowed.
     description: >
@@ -15,7 +15,7 @@ rules:
         match: "^https$|^https://"
 
   interop-002-no-path-versioning:
-    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-api-linter/rules/002
+    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/002
     message: >
       API path contains a version. Versioning SHOULD be in the server URL and NOT in the path(s).
     description: >
@@ -32,7 +32,7 @@ rules:
         notMatch: "/((?:/)(v|version|\\{version\\})(?:/)?)/i"
 
   interop-003-define-common-responses:
-    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-api-linter/rules/003
+    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/003
     message: >
       Missing one or more of the responses: 2XX, 400, 401, 403, and 429.
     description: >
@@ -53,32 +53,3 @@ rules:
                   - "403"
               - required:
                   - "429"
-
-  interop-004-define-rate-limit-header:
-    documentationUrl: https://docs.developer.tech.gov.sg/docs/interop-api-linter/rules/004
-    message: >
-      All 2XX and 4XX responses should define rate limiting headers.
-    description: >
-      Define proper rate limiting to avoid attackers overloading the API. 
-      There are many ways to implement rate-limiting, but most of them involve using HTTP headers.
-    severity: warn
-    formats:
-      - oas3
-    given:
-      - $.paths[*]..responses[?(@property.match(/^(2|4)/))]
-    then:
-      field: headers
-      function: schema
-      functionOptions:
-        schema:
-          type: object
-          oneOf:
-            - required:
-                - RateLimit
-            - required:
-                - RateLimit-Limit
-                - RateLimit-Reset
-            - required:
-                - X-RateLimit-Limit
-            - required:
-                - X-Rate-Limit-Limit
