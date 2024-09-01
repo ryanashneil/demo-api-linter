@@ -45,9 +45,17 @@ rules:
         functionOptions:
           schema:
             type: "object"
+            anyOf:
+              - required:
+                  - "200"
+              - required:
+                  - "201"
+              - required:
+                  - "204"
             allOf:
               - required:
                   - "400"
+              - required:
                   - "401"
               - required:
                   - "403"
