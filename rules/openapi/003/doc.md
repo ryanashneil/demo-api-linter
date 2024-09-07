@@ -35,15 +35,15 @@ paths:
     get:
       summary: "Retrieve a list of users"
       responses:
-        '200':
+        "200":
           description: "A list of users."
-        '400':
+        "400":
           description: "Bad Request."
-        '401':
+        "401":
           description: "Unauthorized."
-        '403':
+        "403":
           description: "Forbidden."
-        '429':
+        "429":
           description: "Too Many Requests."
 ```
 
@@ -55,9 +55,9 @@ paths:
     get:
       summary: "Retrieve a list of users"
       responses:
-        '200':
+        "200":
           description: "A list of users."
-        '404':
+        "404":
           description: "Not Found."
         # Missing required responses such as 400, 401, 403, and 429.
 ```

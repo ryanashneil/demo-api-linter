@@ -1,0 +1,19 @@
+{
+  "name": "interop-spectral-linter",
+  "version": "0.8.0-c",
+  "description": "API Linting for interoperability",
+  "main": "/spectral/openapi.js",
+  "scripts": {
+    "build:openapi": "rollup -c rules/openapi/spectral.rollup.mjs"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@stoplight/spectral-formats": "^1.6.0",
+    "@stoplight/spectral-functions": "^1.8.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.21.2",
+    "typescript": "^5.5.4"
+  }
+}
