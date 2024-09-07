@@ -3,8 +3,6 @@ info:
   title: Unique Tech Events
   version: "4.0.1c"
   description: |
-    [← Return to home](/) | [View API Spec →](/specs/4/lint)
-
     This API provides exclusive events to learn more about STACK in Singapore.
   contact:
     email: publisher@apex.gov.sg
@@ -15,7 +13,8 @@ tags:
 servers:
   - url: https://demo-stack-api-lint.vercel.app/api/v4
     description: Production
-    x-internal: false
+  - url: http://localhost:3000/api/v4
+    description: Local Development
 security:
   - x-exciting-event-api-key: []
 paths:
@@ -43,8 +42,6 @@ paths:
               value: "thailand"
           schema:
             type: string
-            format: /^[a-z]+$/
-            maxLength: 56
             description: The country to filter events from
       responses:
         "200":
@@ -55,45 +52,32 @@ paths:
           content:
             application/json:
               schema:
-                maxItems: 500
                 type: array
                 items:
                   type: object
                   properties:
                     id:
                       type: string
-                      format: uuid
                       description: Unique identifier of the event
-                      maxLength: 255
-                      example: "c4a760a8-dbcf-4e04-9a2a-8f5d5c5f8f8f"
+                      example: "event-123"
                     name:
                       type: string
-                      pattern: "^[A-Za-z0-9- ]+$"
-                      maxLength: 255
                       description: Name of the event
                       example: "STACK Tech Conference"
                     description:
                       type: string
-                      pattern: "^[A-Za-z0-9- ]+$"
-                      maxLength: 255
                       description: Description of the event
                       example: "Conference for developers to learn more about STACK"
                     guestSpeaker:
                       type: string
-                      pattern: "^[A-Za-z- ]+$"
-                      maxLength: 255
                       description: Name of the guest speaker for the event
                       example: "John Doe"
                     date:
                       type: string
-                      format: date-time
                       description: Date of the event
-                      maxLength: 26
                       example: "2024-07-01T03:04:42.800Z"
                     location:
                       type: string
-                      pattern: "^[A-Za-z ]+$"
-                      maxLength: 56
                       description: Location of the event
                       example: "singapore"
         "400":
@@ -124,10 +108,8 @@ paths:
           description: Unique identifier of the event to register
           required: true
           schema:
-            format: uuid
             type: string
-            maxLength: 255
-            example: "c4a760a8-dbcf-4e04-9a2a-8f5d5c5f8f8f"
+            example: "event-123"
       requestBody:
         content:
           application/json:
@@ -136,7 +118,6 @@ paths:
               properties:
                 pax:
                   type: integer
-                  format: int32
                   description: Number of tickets to include to this registration
                   minimum: 1
                   maximum: 3
@@ -144,13 +125,10 @@ paths:
                 email:
                   description: Email of the participant to receive updates on the event
                   type: string
-                  format: email
-                  maxLength: 50
                   example: user@example.com
                 name:
                   type: string
                   description: Name of the participant
-                  format: "^[A-Za-z0-9- ]+$"
                   maxLength: 24
                   minLength: 3
                   example: John Doe
@@ -163,7 +141,7 @@ paths:
                   description: Tier of the ticket seats
                   example: gold
       responses:
-        "200":
+        "201":
           description: Successful registration to event
           headers:
             X-RateLimit-Limit:
@@ -176,9 +154,7 @@ paths:
                   event:
                     type: string
                     description: Id of event registered
-                    format: uuid
-                    maxLength: 255
-                    example: "c4a760a8-dbcf-4e04-9a2a-8f5d5c5f8f8f"
+                    example: "event-123"
                   tickets:
                     type: integer
                     description: Number of tickets registered
@@ -188,8 +164,6 @@ paths:
                     example: 1
                   for:
                     type: string
-                    format: "^[A-Za-z0-9- ]+$"
-                    maxLength: 25
                     description: Name of the participant
                     example: John Doe
         "400":
@@ -226,8 +200,6 @@ components:
             properties:
               message:
                 type: string
-                format: "^[A-Za-z0-9- .!]+$"
-                maxLength: 255
                 example: "The request body is invalid or missing required fields"
     Error401:
       description: Missing or Invalid API key
@@ -241,8 +213,6 @@ components:
             properties:
               message:
                 type: string
-                format: "^[A-Za-z0-9- .!]+$"
-                maxLength: 255
                 example: "You have a missing or invalid API key"
     Error403:
       description: User of API key is not allowed to register to selected event
@@ -256,8 +226,6 @@ components:
             properties:
               message:
                 type: string
-                format: "^[A-Za-z0-9- .!]+$"
-                maxLength: 255
                 example: "User of API key is not allowed to register to selected event"
     Error429:
       description: Rate limit exceeded
@@ -265,10 +233,8 @@ components:
         Retry-After:
           schema:
             type: integer
-            format: int32
-            maximum: 3600
-            minimum: 100
             description: Seconds to wait before retrying the request
+            minimum: 120
         X-RateLimit-Limit:
           $ref: "#/components/headers/X-RateLimit-Limit"
       content:
@@ -278,8 +244,6 @@ components:
             properties:
               message:
                 type: string
-                format: "^[A-Za-z0-9- .!]+$"
-                maxLength: 255
                 example: "You have exceeded the rate limit for this endpoint"
     Error500:
       description: Internal Server Error
@@ -293,6 +257,4 @@ components:
             properties:
               message:
                 type: string
-                format: "^[A-Za-z0-9- .!]+$"
-                maxLength: 255
                 example: "An internal server error has occurred"

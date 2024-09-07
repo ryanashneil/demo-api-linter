@@ -3,7 +3,7 @@ info:
   title: Unique Tech Events
   version: "4.0.1c"
   description: |
-    [← Return to home](/) | [View API Spec →](/specs/1/lint)
+    My API
 servers:
   - url: https://demo-stack-api-lint.vercel.app
   - url: http://localhost:3000

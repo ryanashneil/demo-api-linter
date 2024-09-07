@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: 2024-07-01T03:04:42.800Z
   description: |
-    [← Return to home](/) | [View API Spec →](/specs/0/lint)
+    My API
 servers:
   - url: "http://refer-to-email-for-url"
 paths:

@@ -3,8 +3,6 @@ info:
   title: Unique Tech Events
   version: "4.0.1c"
   description: |
-    [← Return to home](/) | [View API Spec →](/specs/2/lint)
-
     This API provides exclusive events to learn more about STACK in Singapore.
   contact:
     email: publisher@apex.gov.sg
