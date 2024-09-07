@@ -12,8 +12,7 @@ From defining objectives and standards to implementing best practices and foster
 
 ```yaml
 # .spectral.yaml
-extends:
-  ["https://docs.developer.tech.gov.sg/docs/interop-linter/openapi/v0.9/base.yaml"]
+extends: ["https://unpkg.com/interop-spectral-linter"]
 ```
 
 ## Chapters
