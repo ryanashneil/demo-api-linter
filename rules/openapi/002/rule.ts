@@ -3,7 +3,7 @@ import { oas2, oas3 } from "@stoplight/spectral-formats";
 
 const RULE_TITLE = "interop-002-no-path-versioning";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/002";
+  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/002/rule";
 
 export const rule002 = {
   [RULE_TITLE]: {
