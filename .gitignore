@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 .rollup.cache
 spectral
+.spectral.yaml

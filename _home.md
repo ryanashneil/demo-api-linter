@@ -19,6 +19,6 @@ extends: ["https://unpkg.com/interop-spectral-linter"]
 
 | _Category_ | _Rule_                                                      | _Description_                                                                              |
 | ---------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| OpenAPI    | [interop-001-only-https-server](rules/openapi/001.md)       | Only HTTPS servers are allowed                                                             |
-| OpenAPI    | [interop-002-no-path-versioning](rules/openapi/002.md)      | Versioning SHOULD be in the server URL and NOT in the path(s)                              |
-| OpenAPI    | [interop-003-define-common-responses](rules/openapi/003.md) | Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429. |
+| OpenAPI    | [interop-001-only-https-server](rules/openapi/001/doc)       | Only HTTPS servers are allowed                                                             |
+| OpenAPI    | [interop-002-no-path-versioning](rules/openapi/002/doc)      | Versioning SHOULD be in the server URL and NOT in the path(s)                              |
+| OpenAPI    | [interop-003-define-common-responses](rules/openapi/003/doc) | Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429. |

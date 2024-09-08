@@ -1,4 +1,4 @@
-# extends:
-#   - https://unpkg.com/interop-spectral-linter
 extends:
-  - ./spectral/openapi.js
+  - https://unpkg.com/interop-spectral-linter
+# extends:
+#   - ./spectral/openapi.js
