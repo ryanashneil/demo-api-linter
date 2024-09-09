@@ -21,8 +21,16 @@ Try out the linter via a UI [here](https://go.gov.sg/demo-linter-ui)
 
 ## Chapters
 
-| _Category_ | _Rule_                                                        | _Description_                                                                              |
-| ---------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| OpenAPI    | [interop-001-only-https-server](rules/openapi/001/rule)       | Only HTTPS servers are allowed                                                             |
-| OpenAPI    | [interop-002-no-path-versioning](rules/openapi/002/rule)      | Versioning SHOULD be in the server URL and NOT in the path(s)                              |
-| OpenAPI    | [interop-003-define-common-responses](rules/openapi/003/rule) | Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429. |
+### OpenAPI
+
+#### [interop-001-only-https-server](rules/openapi/001/rule)
+
+Only HTTPS servers are allowed
+
+#### [interop-002-no-path-versioning](rules/openapi/002/rule)
+
+Versioning SHOULD be in the server URL and NOT in the path(s)
+
+#### [interop-003-define-common-responses](rules/openapi/003/rule)
+
+Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429.
