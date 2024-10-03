@@ -7,16 +7,20 @@ const DOC_URL =
 export const rule001 = {
   [RULE_TITLE]: {
     documentationUrl: DOC_URL,
-    description:
-      "This rule ensures that all server URLs in the OpenAPI specification use the HTTPS protocol to comply with security best practices, ensuring encrypted communication and protecting sensitive data.",
-    message: "Only HTTPS servers are allowed.",
+    description: "Ensure that a description is defined in the info section.",
+    message: "The 'description' field must be defined in the info section.",
     severity: "error",
-    given: ["$.servers[*].url", "$.schemes[*]"],
+    given: "$.info",
     then: {
-      function: pattern,
-      functionOptions: {
-        match: "^https$|^https://",
-      },
+      field: "description",
+      function: "truthy",
     },
+    also: {
+      given: "$.paths[*][*]",
+      then: {
+        field: "description",
+        function: "truthy",
+      }
+    }
   },
-};
+}; 

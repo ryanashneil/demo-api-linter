@@ -1,31 +1,33 @@
-import { schema } from "@stoplight/spectral-functions";
+import { pattern } from "@stoplight/spectral-functions";
+import { oas2, oas3 } from "@stoplight/spectral-formats";
 
-const RULE_TITLE = "interop-003-define-common-responses";
+const RULE_TITLE = "interop-003-no-path-versioning";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/003/rule";
 
 export const rule003 = {
   [RULE_TITLE]: {
     documentationUrl: DOC_URL,
-    message:
-      "Missing one or more of the responses: 2XX, 400, 401, 403, and 429.",
-    description:
-      "Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 429.",
+    message: "OpenAPI version must match the semantic versioning pattern (e.g., '3.0.0'). API path contains a version. Versioning SHOULD be in the server URL and NOT in the path(s).",
     severity: "error",
-    given: "$.paths[*][*].responses",
+    given: ["$"],
     then: {
-      function: schema,
+      field: "openapi",
+      function: "pattern",
       functionOptions: {
-        schema: {
-          type: "object",
-          required: ["400", "401", "403", "429"],
-          anyOf: [
-            { required: ["200"] },
-            { required: ["201"] },
-            { required: ["204"] },
-          ],
+        // Regular Expression to match semantic versioning
+        match: "^(\\d+\\.\\d+\\.\\d+)$",
+      }
+    },
+    also: {
+      given: ["$.paths[*]~"],
+      then: {
+        function: pattern,
+        functionOptions: {
+          // Regular expression for matching version in the path
+          notMatch: "/((?:/)(v|version|\\{version\\})(?:/)?)/i",
         },
       },
-    },
+    }
   },
 };

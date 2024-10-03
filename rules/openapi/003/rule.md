@@ -1,73 +1,61 @@
 `INTEROP-003`
 
-## Define Common Response
+## Version Control
 
 _Severity: **Error**_
 
 ### Description
 
-This rule mandates the definition of specific common response codes for all API endpoints. The rule requires each endpoint to define responses for success (2XX) and common client and server error scenarios, including 400 (Bad Request), 401 (Unauthorized), 403 (Forbidden), and 429 (Too Many Requests). Properly defining these responses ensures that APIs handle and communicate errors and successes consistently.
+This rule enforces the practice of using API version control using server URL. This also should not be done within the path component of URLs. Embedding versioning in the path can lead to confusion, especially when multiple global versions exist in the same document or when shared schemas, which might evolve over time, unintentionally break backward compatibility. Additionally, using method-level URL versioning is discouraged and should not be implemented.
+
+It should be noted that any version changes should have communication to explain the changes. Minor version changes should be backwards compatible while major version should necessitate early communication with the API user for any code changes.
 
 ### Why this rule is important
 
-- **Consistency**: Defining standard responses across all endpoints helps maintain consistency in how errors and successes are communicated to API consumers.
-- **Error Handling**: Ensuring that common error scenarios (like unauthorized access, bad requests, and rate limiting) are covered helps developers understand and handle these situations effectively.
-- **Compliance**: Following this rule ensures compliance with API design best practices, promoting a reliable and predictable API behavior.
+- **Clarity**: Placing versioning in the server URL provides a clear, consistent approach to versioning and avoids confusion.
+- **Compatibility**: It prevents unintended breaking changes caused by evolving shared schemas referenced in different versions.
+- **Best Practices**: Following this rule aligns with industry standards for API versioning, promoting better organization and maintainability of APIs.
 
 ### How to apply this rule
 
 1. OpenAPI Specification:
-   This rule is applied to the responses object within each endpoint defined in the OpenAPI specification.
+   This rule applies to the paths object in the OpenAPI specification.
 
 2. Validation:
-   The rule checks each endpoint to ensure the inclusion of responses for the following status codes: 2XX, 400, 401, 403, and 429.
-   Missing any of these response codes will trigger an error.
+   The rule checks each path to ensure that versioning (e.g., /v1, /version, /{version}) is not included within the path.
+   Any path containing versioning will trigger an error.
 
 3. Correct Format:
-   Each endpoint should include the specified response codes with appropriate schema definitions for each response.
+   Versioning should be included in the server URL, not in individual paths.
+   Example of a valid server URL with versioning: `https://api.example.com/v1`
 
-### Example of a valid responses configuration
+### Example of a valid security schema configuration
 
 ```yaml
 servers:
+  - url: "https://api.example.com/org/project/v1" # Versioning included in the server URL
+
 paths:
   /users:
     get:
       summary: "Retrieve a list of users"
-      responses:
-        "200":
-          description: "A list of users."
-        "400":
-          description: "Bad Request."
-        "401":
-          description: "Unauthorized."
-        "403":
-          description: "Forbidden."
-        "429":
-          description: "Too Many Requests."
 ```
 
-### Example of an invalid responses configuration
+### Example of an invalid security schema configuration
 
 ```yaml
 paths:
-  /users:
+  /v1/users: # This will trigger an error because versioning is included in the path.
     get:
       summary: "Retrieve a list of users"
-      responses:
-        "200":
-          description: "A list of users."
-        "404":
-          description: "Not Found."
-        # Missing required responses such as 400, 401, 403, and 429.
 ```
 
 ### Error Message
 
-If the rule detects missing required responses, it will generate an error message as follows:
+If the rule detects versioning in the path, it will generate an error message as follows:
 
-- "Missing one or more of the responses: 2XX, 400, 401, 403, and 429."
+- "OpenAPI version must match the semantic versioning pattern (e.g., '3.0.0'). API path contains a version. Versioning SHOULD be in the server URL and NOT in the path(s)."
 
 ### Conclusion
 
-Adhering to this rule ensures that your API provides comprehensive and consistent response handling across different scenarios, improving the overall user experience and reliability of the API. Always define the necessary response codes to ensure clarity and effective communication of success and error states to API consumers.
+Following this rule helps maintain a clear and consistent approach to API versioning. By including versioning in the server URL rather than in paths, you reduce complexity, minimize confusion, and maintain better backward compatibility. Always ensure that API paths are version-agnostic to comply with this best practice.

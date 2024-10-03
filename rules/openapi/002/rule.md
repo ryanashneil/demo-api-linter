@@ -1,59 +1,54 @@
 `INTEROP-002`
 
-## No Path Versioning
+## Only HTTPS Server
 
 _Severity: **Error**_
 
 ### Description
 
-This rule enforces the practice of avoiding API versioning within the path component of URLs. Instead, versioning should be included in the server URL. Embedding versioning in the path can lead to confusion, especially when multiple global versions exist in the same document or when shared schemas, which might evolve over time, unintentionally break backward compatibility. Additionally, using method-level URL versioning is discouraged and should not be implemented.
+This rule ensures that all server URLs specified in the OpenAPI specification use the HTTPS protocol. The use of HTTPS is mandatory to comply with security best practices, ensuring encrypted communication and the protection of sensitive data during transmission.
 
 ### Why this rule is important
 
-- **Clarity**: Placing versioning in the server URL provides a clear, consistent approach to versioning and avoids confusion.
-- **Compatibility**: It prevents unintended breaking changes caused by evolving shared schemas referenced in different versions.
-- **Best Practices**: Following this rule aligns with industry standards for API versioning, promoting better organization and maintainability of APIs.
+HTTP communication is inherently insecure as it transmits data in plaintext, which can be intercepted and read by unauthorized parties. HTTPS, on the other hand, encrypts the data before transmission, providing a secure communication channel. This rule helps to enforce the use of HTTPS to safeguard data and maintain user trust.
 
 ### How to apply this rule
 
 1. OpenAPI Specification:
-   This rule applies to the paths object in the OpenAPI specification.
+   This rule is applied to the servers object and the schemes field in the OpenAPI specification.
 
 2. Validation:
-   The rule checks each path to ensure that versioning (e.g., /v1, /version, /{version}) is not included within the path.
-   Any path containing versioning will trigger an error.
+   The rule checks each URL specified in the servers list to ensure it begins with https://.
+   It also checks that any protocol specified in the schemes list is https.
 
 3. Correct Format:
-   Versioning should be included in the server URL, not in individual paths.
-   Example of a valid server URL with versioning: `https://api.example.com/v1`
+   All URLs should be formatted as `https://example.com`.
+   If using the schemes field, it should only contain the value https.
 
-### Example of a valid server and path configurations
+### Example of a valid server configuration
 
 ```yaml
 servers:
-  - url: "https://api.example.com/v1" # Versioning included in the server URL
-
-paths:
-  /users:
-    get:
-      summary: "Retrieve a list of users"
+  - url: "https://api.example.com"
+schemes:
+  - "https"
 ```
 
-### Example of an invalid server and path configurations
+### Example of an invalid server configuration
 
 ```yaml
-paths:
-  /v1/users: # This will trigger an error because versioning is included in the path.
-    get:
-      summary: "Retrieve a list of users"
+servers:
+  - url: "http://api.example.com" # This will trigger an error because it's not using HTTPS.
+schemes:
+  - "http" # This will also trigger an error as only 'https' is allowed.
 ```
 
 ### Error Message
 
-If the rule detects versioning in the path, it will generate an error message as follows:
+If the rule detects a non-HTTPS URL, it will generate an error message as follows:
 
-- "API path contains a version. Versioning SHOULD be in the server URL and NOT in the path(s)."
+- "Only HTTPS servers are allowed."
 
 ### Conclusion
 
-Following this rule helps maintain a clear and consistent approach to API versioning. By including versioning in the server URL rather than in paths, you reduce complexity, minimize confusion, and maintain better backward compatibility. Always ensure that API paths are version-agnostic to comply with this best practice.
+Following this rule helps maintain secure communication channels within your APIs, protecting data integrity and confidentiality. Always ensure to use HTTPS for all server URLs and protocol specifications to comply with industry standards and best practices.

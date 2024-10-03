@@ -1,12 +1,12 @@
 `INTEROP-001`
 
-## Only HTTPS Server
+## API Description
 
 _Severity: **Error**_
 
 ### Description
 
-This rule ensures that all server URLs specified in the OpenAPI specification use the HTTPS protocol. The use of HTTPS is mandatory to comply with security best practices, ensuring encrypted communication and the protection of sensitive data during transmission.
+The API should be designed and documented with openAPI specifications as much as possible. The description fields in info, and methods should be furnished.
 
 ### Why this rule is important
 
@@ -15,40 +15,57 @@ HTTP communication is inherently insecure as it transmits data in plaintext, whi
 ### How to apply this rule
 
 1. OpenAPI Specification:
-   This rule is applied to the servers object and the schemes field in the OpenAPI specification.
+   This rule is applied to the servers, info object and the paths field in the OpenAPI specification.
 
 2. Validation:
-   The rule checks each URL specified in the servers list to ensure it begins with https://.
-   It also checks that any protocol specified in the schemes list is https.
+   Developers can predict how API endpoints behave, leading to predictable and reliable integrations.
 
-3. Correct Format:
-   All URLs should be formatted as `https://example.com`.
-   If using the schemes field, it should only contain the value https.
+3. Error Prevention:
+   Clarity on Functionality: A detailed description can help clarify the functionality of an endpoint, reducing the likelihood of erroneous usage that may arise from misunderstanding the endpoint's purpose.
+   Reducing Support Queries: Well-documented endpoints with clear descriptions often lead to fewer support requests, as users have the information they need at their disposal.
+
 
 ### Example of a valid server configuration
 
 ```yaml
-servers:
-  - url: "https://api.example.com"
-schemes:
-  - "https"
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+  description: This is a sample API description.  # Required description
+paths:
+  /example:
+    get:
+      summary: Get example data
+      description: This endpoint retrieves example data.  # Required description
+      responses:
+        '200':
+          description: Success
 ```
 
 ### Example of an invalid server configuration
 
 ```yaml
-servers:
-  - url: "http://api.example.com" # This will trigger an error because it's not using HTTPS.
-schemes:
-  - "http" # This will also trigger an error as only 'https' is allowed.
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+paths:
+  /example:
+    get:
+      summary: Get example data
+      responses:
+        '200':
+          description: Success
 ```
 
 ### Error Message
 
-If the rule detects a non-HTTPS URL, it will generate an error message as follows:
+If the rule detects decription is missing in the `info.description` field or `path.method` it will throw the respective error as follows:
 
-- "Only HTTPS servers are allowed."
+- "The 'description' field must be defined in the info section."
+- "Each path method should have a 'description' field defined."
 
 ### Conclusion
 
-Following this rule helps maintain secure communication channels within your APIs, protecting data integrity and confidentiality. Always ensure to use HTTPS for all server URLs and protocol specifications to comply with industry standards and best practices.
+Following this rule helps ensure documentation for the API as well as the methods. However, the quality of the description is not vetted and this is the responsibility of the API author.
