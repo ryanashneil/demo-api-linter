@@ -1,5 +1,3 @@
-import { schema } from "@stoplight/spectral-functions";
-
 const RULE_TITLE = "interop-004-define-security-schema";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/004/rule";

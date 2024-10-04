@@ -10,7 +10,7 @@ The API should be designed and documented with openAPI specifications as much as
 
 ### Why this rule is important
 
-HTTP communication is inherently insecure as it transmits data in plaintext, which can be intercepted and read by unauthorized parties. HTTPS, on the other hand, encrypts the data before transmission, providing a secure communication channel. This rule helps to enforce the use of HTTPS to safeguard data and maintain user trust.
+Designing and documenting APIs with OpenAPI specifications is crucial for promoting interoperability, clarity, reusability, maintainability, and scalability. By furnishing description fields, API consumers can clearly understand the API's functionality, reducing misinterpretation and incorrect usage. This leads to a better developer experience, easier integration, and more successful API adoption, ultimately making the API more maintainable, scalable, and adaptable to changing requirements.
 
 ### How to apply this rule
 

@@ -1,6 +1,4 @@
-import { schema } from "@stoplight/spectral-functions";
-
-const RULE_TITLE = "interop-005-define-common-responses";
+const RULE_TITLE = "interop-005-define-time-limits";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/005/rule";
 

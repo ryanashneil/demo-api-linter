@@ -1,49 +1,43 @@
-import { schema } from "@stoplight/spectral-functions";
+const RULE_TITLE_A = "interop-009a-request-response-define-content-type";
+const RULE_TITLE_B = "interop-009b-request-response-define-headers";
 
-const RULE_TITLE = "interop-009-define-content-type-and-headers";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/009/rule";
 
 export const rule009a = {
-  [RULE_TITLE]: {
+  [RULE_TITLE_A]: {
     documentationUrl: DOC_URL,
-    message:
-      "Content-Type and Headers required for Request and Response definition.",
-    description: "Ensure that Headers and Content-Type header is present in request and response",
+    message: "Content-Type required for Request and Response definition.",
+    description:
+      "Ensure that Content-Type header is present in request and response",
     severity: "error",
     // For requests
     given: "$..request.headers",
-    then:
-    {
+    then: {
       field: "Content-Type",
       function: "exists",
     },
     // For responses as well
-    also:
-    {
+    also: {
       given: "$..responses[*].headers",
-      then:
-      {
+      then: {
         field: "Content-Type",
         function: "exists",
-      }
-    }
+      },
+    },
   },
 };
 
 export const rule009b = {
-  [RULE_TITLE]: {
-      documentationUrl: DOC_URL,
-      message:
-        "Content-Type and Headers required for Request and Response definition.",
-      description: "Ensure that Headers and Content-Type header is present in request and response",
-      severity: "error",
-      given: "$..paths[*].*",
-      then:
-      {
-        field: "parameters[?(@.in == 'header')]",
-        function: "truthy",
-      }
+  [RULE_TITLE_B]: {
+    documentationUrl: DOC_URL,
+    message: "Headers required for Request and Response definition.",
+    description: "Ensure that Headers are present in request and response",
+    severity: "error",
+    given: "$..paths[*].*",
+    then: {
+      field: "parameters[?(@.in == 'header')]",
+      function: "truthy",
     },
   },
 };

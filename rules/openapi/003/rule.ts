@@ -1,5 +1,4 @@
 import { pattern } from "@stoplight/spectral-functions";
-import { oas2, oas3 } from "@stoplight/spectral-formats";
 
 const RULE_TITLE = "interop-003-no-path-versioning";
 const DOC_URL =
@@ -13,7 +12,7 @@ export const rule003 = {
     given: ["$"],
     then: {
       field: "openapi",
-      function: "pattern",
+      function: pattern,
       functionOptions: {
         // Regular Expression to match semantic versioning
         match: "^(\\d+\\.\\d+\\.\\d+)$",
