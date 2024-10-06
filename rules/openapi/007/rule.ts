@@ -7,18 +7,18 @@ const DOC_URL =
 export const rule007 = {
   [RULE_TITLE]: {
     documentationUrl: DOC_URL,
-    message:
-      "Missing one or more of the response: 429.",
+    message: "Missing response code: 429",
     description:
-      "Carefully define schemas for all the API responses to include 429.",
+      "API must define a 429 error response",
+    given: "$.paths[*][*]",
     severity: "error",
-    given: "$.paths[*][*].responses",
     then: {
+      field: "responses",
       function: schema,
       functionOptions: {
         schema: {
           type: "object",
-          required: ["429"],
+          required: ["504"],
         },
       },
     },

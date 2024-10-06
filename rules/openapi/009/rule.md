@@ -6,7 +6,7 @@ _Severity: **Error**_
 
 ### Description
 
-This rule mandates the definition of specific Content-Type, and Headers  in its specification. This rule is also complimeneted with the need for the backend server (or API Gateway) to do this validation.
+This rule mandates the definition of specific Content-Type, and Headers in its specification. This rule is also complimented with the need for the backend server (or API Gateway) to do this validation.
 
 ### Why this rule is important
 

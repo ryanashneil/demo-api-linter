@@ -1,10 +1,16 @@
-openapi: 3.0.3
+openapi: 3.0.0
 info:
   title: 2024-07-01T03:04:42.800Z
   description: |
     My API
 servers:
   - url: "http://refer-to-email-for-url"
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 paths:
   /{path}:
     get:
@@ -15,6 +21,8 @@ paths:
           description: ""
           required: true
           type: string
+      security:
+        - BearerAuth: []
     post:
       operationId: Default_Operation
       parameters:
@@ -23,3 +31,5 @@ paths:
           description: ""
           required: true
           type: string
+      security:
+        - BearerAuth: []

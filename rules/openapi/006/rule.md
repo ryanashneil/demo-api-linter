@@ -17,7 +17,7 @@ This rule mandates the definition of specific common response codes for all API 
 ### How to apply this rule
 
 1. OpenAPI Specification:
-   This rule is applied to the reqeust object within each endpoint defined in the OpenAPI specification.
+   This rule is applied to the request object within each endpoint defined in the OpenAPI specification.
 
 2. Validation:
    The rule checks each endpoint to ensure the inclusion of maxLength or maximum for string and integer parameters respectively.

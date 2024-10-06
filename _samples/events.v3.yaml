@@ -17,9 +17,16 @@ servers:
     description: Local Development
 security:
   - x-exciting-event-api-key: []
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
 paths:
   /events:
     get:
+      security:
+      - BasicAuth: []
       tags:
         - "Events"
       operationId: GetEvents
@@ -41,7 +48,8 @@ paths:
             thailand:
               value: "thailand"
           schema:
-            type: string
+            type: number
+            maximum: 3
             description: The country to filter events from
       responses:
         "200":
@@ -80,16 +88,16 @@ paths:
                       type: string
                       description: Location of the event
                       example: "singapore"
-        "400":
-          $ref: "#/components/responses/Error400"
-        "401":
-          $ref: "#/components/responses/Error401"
-        "403":
-          $ref: "#/components/responses/Error403"
-        "429":
-          $ref: "#/components/responses/Error429"
-        "500":
-          $ref: "#/components/responses/Error500"
+        # "400":
+        #   $ref: "#/components/responses/Error400"
+        # "401":
+        #   $ref: "#/components/responses/Error401"
+        # "403":
+        #   $ref: "#/components/responses/Error403"
+        # "429":
+        #   $ref: "#/components/responses/Error429"
+        # "500":
+        #   $ref: "#/components/responses/Error500"
   /events/{eventId}:
     post:
       tags:

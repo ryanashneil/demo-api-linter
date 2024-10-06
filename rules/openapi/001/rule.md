@@ -61,7 +61,7 @@ paths:
 
 ### Error Message
 
-If the rule detects decription is missing in the `info.description` field or `path.method` it will throw the respective error as follows:
+If the rule detects description is missing in the `info.description` field or `path.method` it will throw the respective error as follows:
 
 - "The 'description' field must be defined in the info section."
 - "Each path method should have a 'description' field defined."

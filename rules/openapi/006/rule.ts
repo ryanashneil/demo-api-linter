@@ -1,25 +1,39 @@
-const RULE_TITLE = "interop-006-define-parameter-maximum-limits";
+import { truthy } from "@stoplight/spectral-functions";
+
+const RULE_TITLE_A = "interop-006a-define-string-max-length-limits";
+const RULE_TITLE_B = "interop-006b-define-integer-number-maximum-limits";
+
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/006/rule";
 
-export const rule006 = {
-  [RULE_TITLE]: {
+export const rule006a = {
+  [RULE_TITLE_A]: {
     documentationUrl: DOC_URL,
-    description: "Ensure that maxLength is only defined for string properties and all integer parameters have a maximum defined.",
-    message: "maxLength should only be defined for string properties and Maximum must be defined for all integer properties.",
+    description:
+      "Ensure that maxLength is defined for string properties",
+    message:
+      "maxLength should only be defined for string properties",
     severity: "error",
-    given: "$..properties[?(@.type == 'string')]",
-    then:{
+    given: "$..[?(@.type === 'string')]",
+    then: {
       field: "maxLength",
-      function: "truthy",
+      function: truthy,
     },
-    also: {
-      given: "$..properties[?(@.type == 'integer')]",
-      then:
-      {
-        field: "maximum",
-        function: "truthy"
-      }
-    }
+  },
+};
+
+export const rule006b = {
+  [RULE_TITLE_B]: {
+    documentationUrl: DOC_URL,
+    description:
+      "Ensure that maximum is defined for integer/number properties",
+    message:
+      "Maximum must be defined for all integer properties.",
+    severity: "error",
+    given: "$..[?(@.type === 'integer' || @.type === 'number')]",
+    then: {
+      field: "maximum",
+      function: truthy,
+    },
   },
 };
