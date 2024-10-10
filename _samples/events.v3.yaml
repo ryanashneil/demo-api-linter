@@ -17,16 +17,11 @@ servers:
     description: Local Development
 security:
   - x-exciting-event-api-key: []
-components:
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
 paths:
   /events:
     get:
       security:
-      - BasicAuth: []
+        - BasicAuth: []
       tags:
         - "Events"
       operationId: GetEvents
@@ -38,7 +33,7 @@ paths:
 
         You may specify which **country** to filter for to get specific events for specific countries.
       parameters:
-        - name: country
+        - name: COUNTRY
           in: query
           examples:
             singapore:
