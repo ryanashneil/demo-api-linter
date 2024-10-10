@@ -2,7 +2,7 @@ OpenAPI
 
 - [001-api-descriptions](rules/openapi/001/rule.md)
 - [002-only-https-servers](rules/openapi/002/rule.md)
-- [003-versioning](rules/openapi/003/rule.md)
+- [003-api-versioning](rules/openapi/003/rule.md)
 - [004-define-security-schema](rules/openapi/004/rule.md)
 - [005-define-api-timeout](rules/openapi/005/rule.md)
 - [006-define-parameter-limits](rules/openapi/006/rule.md)
