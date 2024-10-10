@@ -13,7 +13,6 @@ import { rule009b } from "./009/rule";
 import { rule010a } from "./010/rule";
 import { rule010b } from "./010/rule";
 import { rule010c } from "./010/rule";
-import { rule010d } from "./010/rule";
 
 const BASE_DOC_URL = "https://docs.developer.tech.gov.sg/docs/interop-linter";
 
@@ -32,9 +31,8 @@ export default {
     ...rule008,
     ...rule009a,
     ...rule009b,
-    // ...rule010a,
-    // ...rule010b,
-    // ...rule010c,
-    // ...rule010d,
+    ...rule010a,
+    ...rule010b,
+    ...rule010c,
   },
 };

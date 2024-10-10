@@ -30,16 +30,16 @@ export const rule009b = {
 };
 
 // TODO: Consider removal of rule
-export const rule009c = {
-  [RULE_TITLE_C]: {
-    documentationUrl: DOC_URL,
-    message: "Headers required for Request and Response definition.",
-    description: "Ensure that Headers are present in request and response",
-    severity: "error",
-    given: "$..paths[*].*",
-    then: {
-      field: "parameters[?(@.in == 'header')]",
-      function: truthy,
-    },
-  },
-};
+// export const rule009c = {
+//   [RULE_TITLE_C]: {
+//     documentationUrl: DOC_URL,
+//     message: "Headers required for  Response definition.",
+//     description: "Ensure that Headers are present in request and response",
+//     severity: "error",
+//     given: "$..paths[*].*",
+//     then: {
+//       field: "parameters[?(@.in == 'header')]",
+//       function: truthy,
+//     },
+//   },
+// };
