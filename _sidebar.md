@@ -8,5 +8,5 @@ OpenAPI
 - [006-define-parameter-limits](rules/openapi/006/rule.md)
 - [007-define-rate-limits](rules/openapi/007/rule.md)
 - [008-define-common-responses](rules/openapi/008/rule.md)
-- [009-define-content-type-and-headers](rules/openapi/009/rule.md)
+- [009-define-content-type-query-and-headers](rules/openapi/009/rule.md)
 - [010-naming-conventions-and-sensitive-information](rules/openapi/010/rule.md)

@@ -28,9 +28,9 @@ export const rule010b = {
   [RULE_TITLE_B]: {
     documentationUrl: DOC_URL,
     message:
-      "Query names, path parameters, header names must be in lowerCamelCase or kebab-case.",
+      "QQuery parameter, path parameter and header names must be in lowerCamelCase or kebab-case.",
     description:
-      "Query names and header names must be in lowerCamelCase or kebab-case.",
+      "Query parameter, path parameter and header names must be in lowerCamelCase or kebab-case.",
     severity: "warn",
     given: "$.paths.*.*.parameters[*].name",
     then: {
@@ -49,7 +49,7 @@ export const rule010c = {
       "Query names, path parameters, header names must not contain sensitive information such as NRIC.",
     description:
       "Query names and header names must not contain sensitive information such as NRIC.",
-    severity: "warn",
+    severity: "error",
     given: "$.paths.*.*.parameters[*].name",
     then: {
       function: pattern,

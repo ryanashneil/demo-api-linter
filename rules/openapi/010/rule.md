@@ -2,7 +2,7 @@
 
 ## API Path, Headers, Query Parameters Naming Convention and Sensitive Information in URL and Headers
 
-_Severity: **Error**_
+_Severity: **Warning**/**Error**_
 
 ### Description
 
@@ -96,10 +96,18 @@ paths:
 
 ### Error Message
 
-If the rule detects
+If the rule detects that API path is not in kebab-case,
 
-- "Standardized Naming Conventions should be used and sensitive information should not be present in API Specification"
+- "API paths must be in kebab-case."
+
+If the rule detects that headers, query or path parameter names not in kebab-case, or lowerCamelCase,
+
+- Query parameter, path parameter and header names must be in lowerCamelCase or kebab-case."
+
+If the rule detects that headers, query or path parameter names not contain sensitive information such as NRIC,
+
+- Query parameter, path parameter and header names must not contain sensitive information such as NRIC."
 
 ### Conclusion
 
-Adhering to this rule ensures that your API provides comprehensive and consistent naming conventions, improving the overall user experience and reliability of the API. Sensitive information should generally be in the payload, and not be in path or query parameters.
+Adhering to this rule ensures that your API provides comprehensive and consistent naming conventions, improving the overall user experience and reliability of the API. Sensitive information should be in the payload, and not be in any of the parameters.

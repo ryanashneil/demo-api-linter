@@ -6,7 +6,7 @@ _Severity: **Error**_
 
 ### Description
 
-This rule mandates the definition of specific Content-Type, and Headers in its specification. This rule is also complimented with the need for the backend server (or API Gateway) to do this validation.
+This rule mandates the definition of specific Content-Type in its specification. This rule is also complimented with the need for the backend server (or API Gateway) to do this validation as well as any existing query and header parameters.
 
 ### Why this rule is important
 
@@ -62,8 +62,8 @@ paths:
 
 If the rule detects missing required responses, it will generate an error message as follows:
 
-- "Content-Type and Headers required for Request and Response definition.."
+- "Content-Type required for Request and Response definition."
 
 ### Conclusion
 
-Adhering to this rule ensures that your API provides sufficient headers and content-type specification to the Users, improving the overall user experience and reliability of the API. Always define the necessary headers and content-type to ensure clarity and effective communication of success and error states to API consumers.
+Adhering to this rule ensures that your API provides sufficient content-type specification to the Users, improving the overall user experience and reliability of the API. Always define the necessary content-type, headers and query parameters to ensure clarity and effective communication of success and error states to API consumers.

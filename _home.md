@@ -27,14 +27,13 @@ Try out the linter via a UI [here](https://go.gov.sg/demo-linter-ui)
 
 The API should be designed and documented with openAPI specifications as much as possible. The description fields in info, and methods should be furnished.
 
-
-#### [interop-002-no-path-versioning](rules/openapi/002/rule)
-
-Versioning SHOULD be in the server URL and NOT in the path(s)
-
-#### [interop-003-only-https-server](rules/openapi/003/rule)
+#### [interop-002-only-https-server](rules/openapi/002/rule)
 
 Only HTTPS servers are allowed
+
+#### [interop-003-no-path-versioning](rules/openapi/003/rule)
+
+Versioning SHOULD be in the server URL and NOT in the path(s)
 
 #### [interop-004-define-security-schema](rules/openapi/004/rule.md)
 
@@ -42,7 +41,7 @@ This rule mandates the definition of security schemas for each path. Properly de
 
 #### [interop-005-define-api-timeout](rules/openapi/005/rule.md)
 
-Carefully define schemas for all the API responses to include  504.
+Carefully define schemas for all the API responses to include 504.
 
 #### [interop-006-define-parameter-maximum-limits](rules/openapi/006/rule.md)
 
@@ -56,10 +55,10 @@ This rule mandates the definition of error code 429 when the transmission rate i
 
 Carefully define schemas for all the API responses to include 2XX, 400, 401, 403, and 5xx.
 
-#### [interop-009-define-content-type-and-headers](rules/openapi/009/rule.md)
+#### [interop-009-define-content-type-query-and-headers](rules/openapi/009/rule.md)
 
-This rule mandates the definition of specific Content-Type, and Headers in its specification.
+This rule mandates the definition of specific Content-Type in its specification.
 
 #### [interop-010-standardized-naming-conventions-sensitive-information](rules/openapi/010/rule.md)
 
-This rule mandates the definition of API path and headers follow standard lower kebab case definitions and query parameters follow lower camel case standards.  This rule also ensures that sensitive information is not defined in the API path and query parameters.
+This rule mandates the definition of API to use comprehensive and consistent naming conventions, improving the overall user experience and reliability of the API. Sensitive information should be in the payload, and not be in any of the parameters.
