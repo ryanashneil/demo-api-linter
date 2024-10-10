@@ -96,15 +96,15 @@ paths:
 
 ### Error Message
 
-If the rule detects that API path is not in kebab-case,
+If the rule detects that API path is not in kebab-case:
 
 - "API paths must be in kebab-case."
 
-If the rule detects that headers, query or path parameter names not in kebab-case, or lowerCamelCase,
+If the rule detects that headers, query or path parameter names not in kebab-case, or lowerCamelCase:
 
 - Query parameter, path parameter and header names must be in lowerCamelCase or kebab-case."
 
-If the rule detects that headers, query or path parameter names not contain sensitive information such as NRIC,
+If the rule detects that headers, query or path parameter names not contain sensitive information such as NRIC:
 
 - Query parameter, path parameter and header names must not contain sensitive information such as NRIC."
 

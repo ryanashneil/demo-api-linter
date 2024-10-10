@@ -1,6 +1,6 @@
 `INTEROP-009`
 
-## API Content-Type, API Header and Query Parameter Validation Validation
+## API Content-Type, API Header and Query Parameter Validation
 
 _Severity: **Error**_
 
