@@ -16,7 +16,7 @@ import { rule010c } from "./010/rule";
 
 const BASE_DOC_URL = "https://docs.developer.tech.gov.sg/docs/interop-linter";
 
-export default {
+const spectral = {
   documentationUrl: BASE_DOC_URL,
   rules: {
     ...rule001,
@@ -36,3 +36,5 @@ export default {
     ...rule010c,
   },
 };
+
+export default spectral;
