@@ -18,7 +18,7 @@ export const rule007 = {
       functionOptions: {
         schema: {
           type: "object",
-          required: ["504"],
+          required: ["429"],
         },
       },
     },

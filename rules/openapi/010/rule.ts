@@ -12,7 +12,7 @@ export const rule010a = {
     documentationUrl: DOC_URL,
     message: "API paths must be in kebab-case.",
     description: "API paths must be in kebab-case.",
-    severity: "warning",
+    severity: "warn",
     given: "$.paths[*]~",
     then: {
       function: pattern,
@@ -29,7 +29,7 @@ export const rule010b = {
     documentationUrl: DOC_URL,
     message: "Query names, path parameters, header names must be in lowerCamelCase or kebab-case.",
     description: "Query names and header names must be in lowerCamelCase or kebab-case.",
-    severity: "warning",
+    severity: "warn",
     given: "$.paths.*.*.parameters[*].name",
     then:{
       function: pattern,
@@ -44,7 +44,7 @@ export const rule010c = {
     documentationUrl: DOC_URL,
     message: "Query names, path parameters, header names must not contain sensitive information such as NRIC.",
     description: "Query names and header names must not contain sensitive information such as NRIC.",
-    severity: "warning",
+    severity: "warn",
     given: "$.paths.*.*.parameters[*].name",
     then:{
       function: pattern,
