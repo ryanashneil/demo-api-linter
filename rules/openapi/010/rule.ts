@@ -49,7 +49,7 @@ export const rule010c = {
     then:{
       function: pattern,
       functionOptions:{
-        match: "^(\/|[a-z0-9-.]+|{[a-zA-Z0-9]+})+$|^[a-z][A-Za-z0-9]*$"},
+        match: "^(?!.*[nN][rR][iI][cC]).*$",
     }
   },
 };
