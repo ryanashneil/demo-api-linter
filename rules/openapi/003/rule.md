@@ -1,6 +1,6 @@
 `INTEROP-003`
 
-## Version Control
+## API Versioning
 
 _Severity: **Error**_
 
