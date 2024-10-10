@@ -28,9 +28,9 @@ export const rule010b = {
   [RULE_TITLE_B]: {
     documentationUrl: DOC_URL,
     message:
-      "QQuery parameter, path parameter and header names must be in lowerCamelCase or kebab-case.",
+      "Query parameters, path parameters and header names must be in lowerCamelCase or kebab-case.",
     description:
-      "Query parameter, path parameter and header names must be in lowerCamelCase or kebab-case.",
+      "Query parameters, path parameters and header names must be in lowerCamelCase or kebab-case.",
     severity: "warn",
     given: "$.paths.*.*.parameters[*].name",
     then: {
