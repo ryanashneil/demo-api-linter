@@ -2,7 +2,7 @@
 
 ## Specifying API Time Limits
 
-_Severity: **Error**_
+_Severity: **WARN**_
 
 ### Description
 

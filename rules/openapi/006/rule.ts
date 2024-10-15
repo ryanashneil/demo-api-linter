@@ -13,7 +13,7 @@ export const rule006a = {
       "Ensure that maxLength is defined for string properties",
     message:
       "maxLength should only be defined for string properties",
-    severity: "error",
+    severity: "warn",
     given: "$..[?(@.type === 'string')]",
     then: {
       field: "maxLength",
@@ -29,7 +29,7 @@ export const rule006b = {
       "Ensure that maximum is defined for integer/number properties",
     message:
       "Maximum must be defined for all integer properties.",
-    severity: "error",
+    severity: "warn",
     given: "$..[?(@.type === 'integer' || @.type === 'number')]",
     then: {
       field: "maximum",

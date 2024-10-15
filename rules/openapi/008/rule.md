@@ -2,7 +2,7 @@
 
 ## Define Common Response Codes
 
-_Severity: **Error**_
+_Severity: **Warn**_
 
 ### Description
 

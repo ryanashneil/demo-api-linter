@@ -11,7 +11,7 @@ export const rule007 = {
     description:
       "API must define a 429 error response",
     given: "$.paths[*][*]",
-    severity: "error",
+    severity: "warn",
     then: {
       field: "responses",
       function: schema,

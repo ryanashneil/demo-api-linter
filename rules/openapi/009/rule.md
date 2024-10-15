@@ -2,7 +2,7 @@
 
 ## API Content-Type, API Header and Query Parameter Validation
 
-_Severity: **Error**_
+_Severity: **Warn**_
 
 ### Description
 

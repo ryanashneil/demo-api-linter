@@ -2,7 +2,7 @@
 
 ## API Path, Headers, Query Parameters Naming Convention and Sensitive Information in URL and Headers
 
-_Severity: **Warning**/**Error**_
+_Severity: **Warning**_
 
 ### Description
 

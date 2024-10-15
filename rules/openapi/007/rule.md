@@ -2,7 +2,7 @@
 
 ## Describe Maximum Transmission Size and Speed
 
-_Severity: **Error**_
+_Severity: **Warn**_
 
 ### Description
 

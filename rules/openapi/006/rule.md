@@ -2,7 +2,7 @@
 
 ## Define Parameter Limits
 
-_Severity: **Error**_
+_Severity: **Warn**_
 
 ### Description
 

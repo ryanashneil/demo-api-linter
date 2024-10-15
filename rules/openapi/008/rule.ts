@@ -11,7 +11,7 @@ export const rule008 = {
       "Missing one or more of the common responses: 2XX, 400, 401, 403, and 500, 502",
     description:
       "Carefully define schemas for all the API responses to include at least one of [200, 201, 204], all of [400, 401, 403] and at least one of [500, 502]",
-    severity: "error",
+    severity: "warn",
     given: "$.paths[*][*]",
     then: {
       field: "responses",

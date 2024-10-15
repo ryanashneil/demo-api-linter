@@ -10,7 +10,7 @@ export const rule005 = {
     message: "Missing response code: 504",
     description: "API must define a 504 error response",
     given: "$.paths[*][*]",
-    severity: "error",
+    severity: "warn",
     then: {
       field: "responses",
       function: schema,
