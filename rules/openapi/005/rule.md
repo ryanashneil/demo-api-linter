@@ -1,8 +1,8 @@
-`INTEROP-005`
+`OSS-005`
 
 ## Specifying API Time Limits
 
-_Severity: **WARN**_
+_Severity: **Warn**_
 
 ### Description
 

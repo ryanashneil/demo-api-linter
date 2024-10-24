@@ -1,6 +1,6 @@
 import { schema } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "interop-008-define-common-responses";
+const RULE_TITLE = "oss-008-define-common-responses";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/008/rule";
 

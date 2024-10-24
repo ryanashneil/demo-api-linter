@@ -1,4 +1,4 @@
-`INTEROP-003`
+`OSS-003`
 
 ## API Versioning
 

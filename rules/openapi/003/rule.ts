@@ -1,7 +1,7 @@
 import { pattern } from "@stoplight/spectral-functions";
 
-const RULE_TITLE_A = "interop-003a-valid-openapi-version";
-const RULE_TITLE_B = "interop-003b-no-path-versioning";
+const RULE_TITLE_A = "oss-003a-valid-openapi-version";
+const RULE_TITLE_B = "oss-003b-no-path-versioning";
 
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/003/rule";

@@ -1,4 +1,4 @@
-`INTEROP-004`
+`OSS-004`
 
 ## Use of Strong Authentication and Authorization Mechanisms
 

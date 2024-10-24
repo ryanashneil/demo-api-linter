@@ -1,4 +1,4 @@
-`INTEROP-008`
+`OSS-008`
 
 ## Define Common Response Codes
 

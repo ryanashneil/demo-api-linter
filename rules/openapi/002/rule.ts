@@ -1,6 +1,6 @@
 import { pattern } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "interop-002-only-https-server";
+const RULE_TITLE = "oss-002-only-https-server";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/002/rule";
 

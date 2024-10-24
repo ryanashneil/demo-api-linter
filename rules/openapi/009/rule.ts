@@ -1,7 +1,7 @@
 import { truthy } from "@stoplight/spectral-functions";
 
-const RULE_TITLE_A = "interop-009a-request-define-content-type";
-const RULE_TITLE_B = "interop-009b-response-define-content-type";
+const RULE_TITLE_A = "oss-009a-request-define-content-type";
+const RULE_TITLE_B = "oss-009b-response-define-content-type";
 
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/009/rule";

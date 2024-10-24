@@ -1,7 +1,7 @@
 import { truthy } from "@stoplight/spectral-functions";
 
-const RULE_TITLE_A = "interop-006a-define-string-max-length-limits";
-const RULE_TITLE_B = "interop-006b-define-integer-number-maximum-limits";
+const RULE_TITLE_A = "oss-006a-define-string-max-length-limits";
+const RULE_TITLE_B = "oss-006b-define-integer-number-maximum-limits";
 
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/006/rule";

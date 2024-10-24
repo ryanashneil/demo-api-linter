@@ -1,4 +1,4 @@
-`INTEROP-007`
+`OSS-007`
 
 ## Describe Maximum Transmission Size and Speed
 
