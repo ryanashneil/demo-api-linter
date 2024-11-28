@@ -1,4 +1,4 @@
-`OSS-008`
+`DPS-008`
 
 ## Define Common Response Codes
 

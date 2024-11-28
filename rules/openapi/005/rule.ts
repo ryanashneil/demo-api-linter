@@ -1,6 +1,6 @@
 import { schema } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "oss-005-define-time-limits";
+const RULE_TITLE = "dps-005-define-time-limits";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/005/rule";
 

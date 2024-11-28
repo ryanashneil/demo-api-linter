@@ -1,6 +1,6 @@
 import { schema } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "oss-007-define-rate-limits";
+const RULE_TITLE = "dps-007-define-rate-limits";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/007/rule";
 

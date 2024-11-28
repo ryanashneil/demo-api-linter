@@ -1,4 +1,4 @@
-`OSS-004`
+`DPS-004`
 
 ## Use of Strong Authentication and Authorization Mechanisms
 

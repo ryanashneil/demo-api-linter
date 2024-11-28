@@ -1,6 +1,6 @@
 import { truthy } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "oss-004-define-security-schema";
+const RULE_TITLE = "dps-004-define-security-schema";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/004/rule";
 

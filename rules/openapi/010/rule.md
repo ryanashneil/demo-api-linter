@@ -1,4 +1,4 @@
-`OSS-010`
+`DPS-010`
 
 ## API Path, Headers, Query Parameters Naming Convention and Sensitive Information in URL and Headers
 

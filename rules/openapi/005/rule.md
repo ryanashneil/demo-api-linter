@@ -1,4 +1,4 @@
-`OSS-005`
+`DPS-005`
 
 ## Specifying API Time Limits
 

@@ -1,4 +1,4 @@
-`OSS-007`
+`DPS-007`
 
 ## Describe Maximum Transmission Size and Speed
 

@@ -1,6 +1,6 @@
 import { truthy } from "@stoplight/spectral-functions";
 
-const RULE_TITLE = "oss-001-api-descriptions";
+const RULE_TITLE = "dps-001-api-descriptions";
 const DOC_URL =
   "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/001/rule";
 

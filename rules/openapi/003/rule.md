@@ -1,4 +1,4 @@
-`OSS-003`
+`DPS-003`
 
 ## API Versioning
 
