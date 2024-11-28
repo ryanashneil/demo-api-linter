@@ -6,7 +6,7 @@ _Severity: **Warn**_
 
 ### Description
 
-This rule mandates the definition of specific common response codes for all API endpoints. The rule requires each endpoint to define responses for success (2XX) and common client and server error scenarios, including 400 (Bad Request), 401 (Unauthorized), 403 (Forbidden), and 429 (Too Many Requests). Properly defining these responses ensures that APIs handle and communicate errors and successes consistently.
+This rule mandates the definition of specific parameter limits. This is to prevent unrestrained size of integers and numbers, and length of characters.
 
 ### Why this rule is important
 
