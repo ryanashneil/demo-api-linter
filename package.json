@@ -1,6 +1,6 @@
 {
   "name": "interop-spectral-linter",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "API Linting for interoperability",
   "main": "/spectral/openapi.js",
   "scripts": {
