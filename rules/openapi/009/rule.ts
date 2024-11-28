@@ -4,7 +4,7 @@ const RULE_TITLE_A = "dps-009a-request-define-content-type";
 const RULE_TITLE_B = "dps-009b-response-define-content-type";
 
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/009/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/009/rule";
 
 export const rule009a = {
   [RULE_TITLE_A]: {

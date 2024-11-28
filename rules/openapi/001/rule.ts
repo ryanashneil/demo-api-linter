@@ -2,7 +2,7 @@ import { truthy } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-001-api-descriptions";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/001/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/001/rule";
 
 export const rule001 = {
   [RULE_TITLE]: {

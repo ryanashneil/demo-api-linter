@@ -2,7 +2,7 @@ import { pattern } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-002-only-https-server";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/002/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/002/rule";
 
 export const rule002 = {
   [RULE_TITLE]: {

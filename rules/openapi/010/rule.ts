@@ -6,7 +6,7 @@ const RULE_TITLE_B =
 const RULE_TITLE_C = "dps-010c-no-sensitive-information-in-params";
 
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/010/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/010/rule";
 
 export const rule010a = {
   [RULE_TITLE_A]: {

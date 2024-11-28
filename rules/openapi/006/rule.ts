@@ -4,7 +4,7 @@ const RULE_TITLE_A = "dps-006a-define-string-max-length-limits";
 const RULE_TITLE_B = "dps-006b-define-integer-number-maximum-limits";
 
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/006/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/006/rule";
 
 export const rule006a = {
   [RULE_TITLE_A]: {

@@ -2,7 +2,7 @@ import { schema } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-008-define-common-responses";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/008/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/008/rule";
 
 export const rule008 = {
   [RULE_TITLE]: {

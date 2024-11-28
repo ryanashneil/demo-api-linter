@@ -14,7 +14,7 @@ import { rule010a } from "./010/rule";
 import { rule010b } from "./010/rule";
 import { rule010c } from "./010/rule";
 
-const BASE_DOC_URL = "https://docs.developer.tech.gov.sg/docs/interop-linter";
+const BASE_DOC_URL = "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter";
 
 const spectral = {
   documentationUrl: BASE_DOC_URL,

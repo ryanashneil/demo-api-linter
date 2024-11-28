@@ -2,7 +2,7 @@ import { schema } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-007-define-rate-limits";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/007/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/007/rule";
 
 export const rule007 = {
   [RULE_TITLE]: {

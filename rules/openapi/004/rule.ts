@@ -2,7 +2,7 @@ import { truthy } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-004-define-security-schema";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/004/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/004/rule";
 
 export const rule004 = {
   [RULE_TITLE]: {

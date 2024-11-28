@@ -4,7 +4,7 @@ const RULE_TITLE_A = "dps-003a-valid-openapi-version";
 const RULE_TITLE_B = "dps-003b-no-path-versioning";
 
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/003/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/003/rule";
 
 export const rule003a = {
   [RULE_TITLE_A]: {

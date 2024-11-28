@@ -2,7 +2,7 @@ import { schema } from "@stoplight/spectral-functions";
 
 const RULE_TITLE = "dps-005-define-time-limits";
 const DOC_URL =
-  "https://docs.developer.tech.gov.sg/docs/interop-linter/rules/openapi/005/rule";
+  "https://docs.developer.tech.gov.sg/docs/data-provisioning-standards-dps-linter/rules/openapi/005/rule";
 
 export const rule005 = {
   [RULE_TITLE]: {
